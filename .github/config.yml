@@ -1,8 +1,18 @@
 # Defining which series to use and other config here
 # Not sure exactly the structure of this until I get the hang of the FRED api options and decide what to do with this project
- 
- series:
-  - SP500 # S&P 500
-  - UNRATE # Unemployment rate (U-3)
-  - A191RL1Q225SBEA # Real GDP
-  - ICSA # Inital jobless claims
+
+# Not sure I will need all of these using flask
+application: fredgrapher  # Define a name for the webapp
+version: 1                # App version
+runtime: python37         # Python version
+api_version: 1            # API version
+threadsafe: false         # API routes requests one at a time
+handlers:                 # Defines web page requests and behaviors
+- url: /.*                # At any url...
+  script: app.py          # we run app.py
+
+series:
+ - SP500 # S&P 500
+ - UNRATE # Unemployment rate (U-3)
+ - A191RL1Q225SBEA # Real GDP
+ - ICSA # Inital jobless claims
