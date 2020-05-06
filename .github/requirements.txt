@@ -1,0 +1,12 @@
+# TODO - this isn't actually gonna work as is
+pip-compile requirements.in # useful command to collect requirements (uses pip-tools)
+pip-install -r requirements.txt # should install each package from this file
+
+
+flask
+fredapi
+pandas
+yaml
+PyYAML
+datetime
+dotenv # pip install -U python-dotenv

@@ -5,13 +5,14 @@ import yaml
 import datetime
 import sys
 import os 
-import settings 
+import settings
+
 
 # Create FRED object
 # https://github.com/mortada/fredapi
 fred = Fred(settings.API_KEY)
 
-today = datetime.today()
+today = datetime.date.today()
 lastyear = today - datetime.timedelta(days=365)
 
 def loadseries(*args):
