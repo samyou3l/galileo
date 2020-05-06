@@ -1,0 +1,8 @@
+# Defining which series to use and other config here
+# Not sure exactly the structure of this until I get the hang of the FRED api options and decide what to do with this project
+ 
+ series:
+  - SP500 # S&P 500
+  - UNRATE # Unemployment rate (U-3)
+  - A191RL1Q225SBEA # Real GDP
+  - ICSA # Inital jobless claims
