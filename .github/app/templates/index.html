@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function cb(selection) {
+            $.getJSON({
+                url: "/callback", data: { 'data': selection }, success: function (result) {
+                    Plotly.newPlot('chart', result, {staticPlot: true});;
+                }
+            });
+        }
+    </script>
+</head>
+
+<body style="font-family:arial, sans-serif">
+    <h2>Choose a series</h2>
+    <br> 
+      <label for="series">Series : </label>
+        <select name="series" id="series" onchange="cb(this.value)" onfocus="this.selectedIndex = -1;">
+           {% for item in series_list %}
+             <option value="{{ item }}">{{item}}</option>
+           {% endfor %}
+        </select>
+    <h1>{{ series_info }}</h1>
+    
+    <div id="chart" class="chart"></div>
+</body>
+
+<script>
+    d = {{ graphJSON | safe }};
+    //d.config={staticPlot: true};
+    Plotly.newPlot('chart', d, {});
+    
+</script>
+</html>
